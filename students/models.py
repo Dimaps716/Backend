@@ -87,6 +87,7 @@ class info(models.Model):
     url = models.URLField(null=True, max_length=800)
     body = models.TextField(blank=True) 
     pub_date = models.CharField( null=True,max_length=100)
+    image_url = models.URLField(null=True, max_length=500)
 
     def __str__(self):
         return self.title
