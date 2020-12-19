@@ -42,7 +42,7 @@ def coursList(request):
 
 @api_view(['GET'])
 def infoList(request):
-    informat = information.objects.all()
+    informat = info.objects.all()
     serializer = informationSerializer(informat, many=True)
     return Response(serializer.data)
 
@@ -78,13 +78,6 @@ def milestonsDetail(request, pk):
 def coursDetail(request, pk):
     course = courses.objects.get(id=pk)
     serializer = coursesSerializer(course, many=False)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def infoList(request, pk):
-    informat = information.objects.get(id=pk)
-    serializer = informationSerializer(informat, many=True)
     return Response(serializer.data)
 
 # create 

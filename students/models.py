@@ -53,11 +53,11 @@ class project(models.Model):
 
 
 class courses(models.Model):
-    title = models.CharField(max_length=300)
-    url = models.URLField(max_length=500)
-    overview = models.CharField(max_length=300)
-    badge_url = models.URLField(max_length=800)
-    created_at = models.CharField(max_length=200)
+    title = models.CharField(null=True,max_length=300)
+    url = models.URLField(null=True,max_length=500)
+    overview = models.CharField(null=True,max_length=300)
+    badge_url = models.URLField(null=True,max_length=800)
+    created_at = models.CharField(null=True,max_length=200)
 
     def __str__(self):
         return self.title
@@ -82,11 +82,11 @@ class milestone(models.Model):
 
 
 class info(models.Model):
-    title = models.CharField(max_length=100)
-    overview = models.CharField(max_length=100)
-    url = models.URLField(max_length=800)
-    body = models.CharField(max_length=8000)
-    pub_date = models.CharField(max_length=100)
+    title = models.CharField(null=True, max_length=100)
+    overview = models.CharField(null=True, max_length=100)
+    url = models.URLField(null=True, max_length=800)
+    body = models.TextField(blank=True) 
+    pub_date = models.CharField( null=True,max_length=100)
 
     def __str__(self):
         return self.title
