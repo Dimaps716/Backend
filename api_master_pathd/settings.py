@@ -107,10 +107,10 @@ WSGI_APPLICATION = 'api_master_pathd.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DATABASE_NAME"),
+        'NAME': 'postgres',
         'USER': env("DATABASE_USER"),
         'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
+        'HOST': 'database-1.ccsf4b7nozv3.us-east-2.rds.amazonaws.com',
         'PORT': env("DATABASE_PORT")
     }
 }
