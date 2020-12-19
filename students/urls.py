@@ -97,6 +97,12 @@ urlpatterns = [
         view=views.coursCreate,
         name= 'courses-create'
     ),
+    
+        path(
+        route='api/information-create/',
+        view= views.infoCreate,
+        name= 'information_create'
+    ),
 
     # url update
         path(
