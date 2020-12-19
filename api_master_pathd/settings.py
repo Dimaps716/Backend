@@ -32,12 +32,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = '(8052k@=*=ucuuq@l3#nyus5rk&rzb9ohv3^i9^392h(3t%*y3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = (*)
 
 
 # Application definition
@@ -108,10 +108,10 @@ DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
+        'USER': 'postgres',
+        'PASSWORD': 'dima1994.',
         'HOST': 'database-1.ccsf4b7nozv3.us-east-2.rds.amazonaws.com',
-        'PORT': env("DATABASE_PORT")
+        'PORT': '5432 '
     }
 }
 
