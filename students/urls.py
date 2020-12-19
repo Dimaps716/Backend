@@ -33,6 +33,11 @@ urlpatterns = [
         view= views.coursList,
         name= 'courses_list'
     ),
+        path(
+        route='api/information-list/',
+        view= views.infoList,
+        name= 'information_list'
+    ),
 
     # url pos detail
         path(
@@ -71,6 +76,11 @@ urlpatterns = [
         route='api/tecnologies-create/',
         view=views.tecnologieCreate,
         name= 'tecnologies-create'
+    ),
+        path(
+        route='api/information-create/',
+        view= views.infoCreate,
+        name= 'information_create'
     ),
         path(
         route='api/projectList-create/',

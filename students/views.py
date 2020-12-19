@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from students.models import studen, technologi, project, courses, milestone
+from students.models import studen, technologi, project, courses, milestone, info
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
 #  create your views here.
 from .models import studen, technologi, project, courses, milestone
-from students.serializers import studenSerializer, technologiSerializer, projectSerializer, coursesSerializer, milestoneSerializer
+from students.serializers import studenSerializer, technologiSerializer, projectSerializer, coursesSerializer, milestoneSerializer, informationSerializer
 
 # list all 
 @api_view(['GET'])
@@ -39,6 +39,14 @@ def coursList(request):
     course = courses.objects.all()
     serializer = coursesSerializer(course, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def infoList(request):
+    informat = information.objects.all()
+    serializer = informationSerializer(informat, many=True)
+    return Response(serializer.data)
+
+
 
 # lits detail
 
@@ -73,6 +81,12 @@ def coursDetail(request, pk):
     return Response(serializer.data)
 
 
+@api_view(['GET'])
+def infoList(request, pk):
+    informat = information.objects.get(id=pk)
+    serializer = informationSerializer(informat, many=True)
+    return Response(serializer.data)
+
 # create 
 
 @api_view(['POST'])
@@ -106,6 +120,13 @@ def milestonsCreate(request):
 @api_view(['POST'])
 def coursCreate(request):
     serializer = coursesSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def infoCreate(request):
+    serializer = informationSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -146,7 +167,7 @@ def projeUpdate(request, pk):
 @api_view(['POST'])
 def milestonsUpdate(request, pk):
     milesto = milestons.objects.get(id=pk)
-    serializer = milestonSerializer(instance=course, data=request.data)
+    serializer = milestonSerializer(instance=milesto, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -155,6 +176,14 @@ def milestonsUpdate(request, pk):
 def coursUpdate(request, pk):
     course = courses.objects.get(id=pk)
     serializer = coursesSerializer(instance=course, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def infoCreate(request, pk):
+    informat = information.objects.get(id=pk)
+    serializer = informationSerializer(instance=informat, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)

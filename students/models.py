@@ -53,13 +53,14 @@ class project(models.Model):
 
 
 class courses(models.Model):
-    name = models.CharField(max_length=300)
-    ur_local = models.URLField(max_length=500)
-    time = models.IntegerField()
-    week = models.CharField(max_length=80)
+    title = models.CharField(max_length=300)
+    url = models.URLField(max_length=500)
+    overview = models.CharField(max_length=300)
+    badge_url = models.URLField(max_length=800)
+    created_at = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.name
+        return self.title
 
     class Meta:
         verbose_name = 'course'
@@ -75,6 +76,22 @@ class milestone(models.Model):
         return self.milestone
 
     class Meta:
-        verbose_name = 'name'
-        verbose_name_plural = 'names'
+        verbose_name = 'milestone'
+        verbose_name_plural = 'mileestones'
+        ordering = ['id']
+
+
+class info(models.Model):
+    title = models.CharField(max_length=100)
+    overview = models.CharField(max_length=100)
+    url = models.URLField(max_length=800)
+    body = models.CharField(max_length=8000)
+    pub_date = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'infomation'
+        verbose_name_plural = 'informations'
         ordering = ['id']
