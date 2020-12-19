@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'apifellas'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_466af995dd2e4e938de13025f820cf2e }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_80e3813c258544fb8b750e28f05d97d0 }}
