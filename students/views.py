@@ -173,13 +173,6 @@ def coursUpdate(request, pk):
         serializer.save()
     return Response(serializer.data)
 
-@api_view(['POST'])
-def infoCreate(request, pk):
-    informat = information.objects.get(id=pk)
-    serializer = informationSerializer(instance=informat, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
 
 # delete 
 @api_view(['DELETE'])

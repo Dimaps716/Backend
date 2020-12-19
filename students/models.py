@@ -3,18 +3,19 @@ from django.db import models
 
 # creation of the database model its fields and parameters
 class studen(models.Model):
-    photo = models.URLField(max_length=500)
-    name = models.CharField(max_length=80)
+    user = models.CharField(max_length=80)
+    email = models.CharField(max_length=80)
     career = models.CharField(max_length=80)
     status = models.CharField(max_length=300)
     exp = models.IntegerField()
     lv = models.IntegerField()
+    progress = models.IntegerField()
 
 
 
 # Return name
     def __str__(self):
-        return self.name
+        return self.user
 
     class Meta:
         verbose_name = 'studen'
