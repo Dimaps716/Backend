@@ -11,20 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
-import environ
-
-env = environ.Env()
-# reading .env file
-environ.Env.read_env()
-
-
-DEBUG = env('DEBUG')
-
-from pathlib import Path
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '(8052k@=*=ucuuq@l3#nyus5rk&rzb9ohv3^i9^392h(3t%*y3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = False
 
-ALLOWED_HOSTS = (*)
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -111,7 +101,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'dima1994.',
         'HOST': 'database-1.ccsf4b7nozv3.us-east-2.rds.amazonaws.com',
-        'PORT': '5432 '
+        'PORT': '5432',
     }
 }
 
